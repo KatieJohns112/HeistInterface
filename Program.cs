@@ -25,40 +25,47 @@ namespace HeistInterface
                 Console.WriteLine($"{robber.Name}");
             }
 
+
             Console.Write("Enter a new crew member's name:");
             string crewMember = Console.ReadLine();
-            Console.WriteLine($"What speciality (Hacker, Muscle or Lock Specialist) should {crewMember} have?");
-            string speciality = Console.ReadLine();
-            Console.WriteLine($"What skill level (1-100) should this {speciality} have?");
-            int skillLevel = int.Parse(Console.ReadLine());
-            Console.WriteLine($"What should {crewMember} want as a percentage cut?");
-            int percentageCut = int.Parse(Console.ReadLine());
-            if (speciality == "Hacker")
+
+            while (crewMember != "")
             {
-                rolodex.Add(new Hacker()
+                Console.WriteLine($"What speciality (Hacker, Muscle or Lock Specialist) should {crewMember} have?");
+                string speciality = Console.ReadLine();
+                Console.WriteLine($"What skill level (1-100) should this {speciality} have?");
+                int skillLevel = int.Parse(Console.ReadLine());
+                Console.WriteLine($"What should {crewMember} want as a percentage cut?");
+                int percentageCut = int.Parse(Console.ReadLine());
+                if (speciality == "Hacker")
                 {
-                    Name = crewMember,
-                    SkillLevel = skillLevel,
-                    PercentageCut = percentageCut
-                });
-            }
-            else if (speciality == "Muscle")
-            {
-                rolodex.Add(new Muscle()
+                    rolodex.Add(new Hacker()
+                    {
+                        Name = crewMember,
+                        SkillLevel = skillLevel,
+                        PercentageCut = percentageCut
+                    });
+                }
+                else if (speciality == "Muscle")
                 {
-                    Name = crewMember,
-                    SkillLevel = skillLevel,
-                    PercentageCut = percentageCut
-                });
-            }
-            else if (speciality == "Lock Specialist")
-            {
-                rolodex.Add(new LockSpecialist()
+                    rolodex.Add(new Muscle()
+                    {
+                        Name = crewMember,
+                        SkillLevel = skillLevel,
+                        PercentageCut = percentageCut
+                    });
+                }
+                else if (speciality == "Lock Specialist")
                 {
-                    Name = crewMember,
-                    SkillLevel = skillLevel,
-                    PercentageCut = percentageCut
-                });
+                    rolodex.Add(new LockSpecialist()
+                    {
+                        Name = crewMember,
+                        SkillLevel = skillLevel,
+                        PercentageCut = percentageCut
+                    });
+                }
+                Console.WriteLine("Enter a new crew member name");
+                crewMember = Console.ReadLine();
             }
         }
     }
