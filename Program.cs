@@ -100,9 +100,17 @@ namespace HeistInterface
             }
 
             List<IRobber> crew = new List<IRobber>();
+            int num = -1;
             Console.WriteLine("Enter the number of the operative you want to include in the heist!:) ");
-            int num = int.Parse(Console.ReadLine());
-            crew.Add(rolodex[num]);
+            string output = Console.ReadLine();
+            while (output != "")
+            {
+                num = int.Parse(output);
+                Console.WriteLine(num);
+                crew.Add(rolodex[num]);
+                Console.WriteLine("Enter the number of the operative you want to include in the heist!:) ");
+                output = Console.ReadLine();
+            }
         }
     }
 }
