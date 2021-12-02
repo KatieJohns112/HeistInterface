@@ -11,7 +11,7 @@ namespace HeistInterface
         {
             bank.VaultScore -= SkillLevel;
             // bank.AlarmScore = bank.AlarmScore - SkillLevel; this is also line12
-            Console.WriteLine($"{Name} is cracking the vault. Decreased security by{SkillLevel} points!");
+            Console.WriteLine($"{Name} is cracking the vault. Decreased security by {SkillLevel} points!");
             if (bank.VaultScore <= 0)
             {
                 Console.WriteLine($"{Name} has opened the vault!");

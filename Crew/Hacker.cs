@@ -11,7 +11,8 @@ namespace HeistInterface
         {
             bank.AlarmScore -= SkillLevel;
             // bank.AlarmScore = bank.AlarmScore - SkillLevel; this is also line12
-            Console.WriteLine($"{Name} is hacking the alarm system. Decreased security by{SkillLevel} points!");
+            Console.WriteLine($"{Name} is hacking the alarm system. Decreased security by {SkillLevel} points!");
+
             if (bank.AlarmScore <= 0)
             {
                 Console.WriteLine($"{Name} has disabled the alarm system!");
