@@ -90,6 +90,11 @@ namespace HeistInterface
 
             Console.WriteLine($"Least Secure : {SortedDict.ElementAt(0).Key}");
             Console.WriteLine($"Most Secure : {SortedDict.ElementAt(2).Key}");
+
+            foreach (IRobber robber in rolodex)
+            {
+                Console.WriteLine($"1. {robber.Name} {robber.GetType().ToString().Split('.')[1]} {robber.SkillLevel}  {robber.PercentageCut}");
+            }
         }
     }
 }
