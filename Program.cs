@@ -91,10 +91,18 @@ namespace HeistInterface
             Console.WriteLine($"Least Secure : {SortedDict.ElementAt(0).Key}");
             Console.WriteLine($"Most Secure : {SortedDict.ElementAt(2).Key}");
 
-            foreach (IRobber robber in rolodex)
+            for (int i = 0; i < rolodex.Count; i++)
             {
-                Console.WriteLine($"1. {robber.Name} {robber.GetType().ToString().Split('.')[1]} {robber.SkillLevel}  {robber.PercentageCut}");
+                Console.WriteLine($"{i}. {rolodex[i].Name}:  ");
+                Console.WriteLine($"    Speciality: {rolodex[i].GetType().ToString().Split('.')[1]}");
+                Console.WriteLine($"    Skill Level: {rolodex[i].SkillLevel}");
+                Console.WriteLine($"    Skill Level: {rolodex[i].PercentageCut}%");
             }
+
+            List<IRobber> crew = new List<IRobber>();
+            Console.WriteLine("Enter the number of the operative you want to include in the heist!:) ");
+            int num = int.Parse(Console.ReadLine());
+            crew.Add(rolodex[num]);
         }
     }
 }
