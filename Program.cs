@@ -122,13 +122,19 @@ namespace HeistInterface
             {
                 robber.PerformSkill(bank1);
             };
+
             if (bank1.IsSecure)
             {
-                Console.WriteLine("Bank is secure!");
+                Console.WriteLine("Unsuccessful Heist!!!");
             }
             else
             {
-                Console.WriteLine("Bank is not secure !!!");
+                Console.WriteLine("Successful Heist!!!");
+
+                foreach (IRobber robber in crew)
+                {
+                    Console.WriteLine($"{robber.Name} gets {(robber.PercentageCut * .01) * bank1.CashOnHand}");
+                }
             }
         }
     }
