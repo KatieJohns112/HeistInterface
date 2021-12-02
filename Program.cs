@@ -111,12 +111,24 @@ namespace HeistInterface
                 if (filtered.Contains(rolodex[num]))
                 {
                     crew.Add(rolodex[num]);
-                    Console.WriteLine("Operative usccessfully added!");
+                    Console.WriteLine("Operative successfully added!:)");
                 }
                 else
                 {
-                    Console.WriteLine("Operative is already included.");
+                    Console.WriteLine("Operative is already included!:)");
                 }
+            }
+            foreach (IRobber robber in crew)
+            {
+                robber.PerformSkill(bank1);
+            };
+            if (bank1.IsSecure)
+            {
+                Console.WriteLine("Bank is secure!");
+            }
+            else
+            {
+                Console.WriteLine("Bank is not secure !!!");
             }
         }
     }
