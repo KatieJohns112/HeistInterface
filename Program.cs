@@ -100,16 +100,23 @@ namespace HeistInterface
             }
 
             List<IRobber> crew = new List<IRobber>();
-            int num = -1;
-            Console.WriteLine("Enter the number of the operative you want to include in the heist!:) ");
-            string output = Console.ReadLine();
+            string output = "value";
             while (output != "")
             {
-                num = int.Parse(output);
-                Console.WriteLine(num);
-                crew.Add(rolodex[num]);
-                Console.WriteLine("Enter the number of the operative you want to include in the heist!:) ");
+                Console.Write("Enter the number of the operative you want to include in the heist:");
                 output = Console.ReadLine();
+                if (output == "") { continue; }
+                int num = int.Parse(output);
+                List<IRobber> filtered = rolodex.Where(r => !crew.Contains(r) && r.PercentageCut < 100 - crew.Select(s => s.PercentageCut).Sum()).ToList();
+                if (filtered.Contains(rolodex[num]))
+                {
+                    crew.Add(rolodex[num]);
+                    Console.WriteLine("Operative usccessfully added!");
+                }
+                else
+                {
+                    Console.WriteLine("Operative is already included.");
+                }
             }
         }
     }
